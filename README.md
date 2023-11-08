@@ -1,6 +1,6 @@
 # fase3-infra-apigateway
 
-Infra API Gateway com Terraform
+Infra API Gateway com Terraform.
 
 - [Tech Challenge](#tech-challenge)
   - [Alunos](#alunos)
