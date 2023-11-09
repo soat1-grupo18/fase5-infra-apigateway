@@ -35,7 +35,8 @@ function internalHandler(event) {
         },
         'isBase64Encoded': false,
         'body': JSON.stringify({
-            'access_token': `${firstPart}.${secondPart}.${thirdPart}`
+            'access_token': `${firstPart}.${secondPart}.${thirdPart}`,
+            'type': 'Bearer'
         })
     }; 
 }
