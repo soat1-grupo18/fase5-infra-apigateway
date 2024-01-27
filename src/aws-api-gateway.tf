@@ -35,7 +35,7 @@ resource "aws_api_gateway_rest_api" "this" {
             connectionId         = aws_api_gateway_vpc_link.this.id
             payloadFormatVersion = "1.0"
             type                 = "HTTP_PROXY"
-            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/food-api/clientes"
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-cliente/clientes"
           }
         }
       }
@@ -52,7 +52,7 @@ resource "aws_api_gateway_rest_api" "this" {
             connectionId         = aws_api_gateway_vpc_link.this.id
             payloadFormatVersion = "1.0"
             type                 = "HTTP_PROXY"
-            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/food-api/clientes/{cpf}"
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-cliente/clientes/{cpf}"
             requestParameters = {
               "integration.request.path.cpf" : "method.request.path.param"
             }
@@ -72,7 +72,7 @@ resource "aws_api_gateway_rest_api" "this" {
             connectionId         = aws_api_gateway_vpc_link.this.id
             payloadFormatVersion = "1.0"
             type                 = "HTTP_PROXY"
-            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/food-api/pagamentos"
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-pagamento/pagamentos"
           }
         }
       }
@@ -89,7 +89,7 @@ resource "aws_api_gateway_rest_api" "this" {
             connectionId         = aws_api_gateway_vpc_link.this.id
             payloadFormatVersion = "1.0"
             type                 = "HTTP_PROXY"
-            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/food-api/pagamentos/{pedidoId}"
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-pagamento/pagamentos/{pedidoId}"
             requestParameters = {
               "integration.request.path.pedidoId" : "method.request.path.param"
             }
@@ -109,7 +109,7 @@ resource "aws_api_gateway_rest_api" "this" {
             connectionId         = aws_api_gateway_vpc_link.this.id
             payloadFormatVersion = "1.0"
             type                 = "HTTP_PROXY"
-            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/food-api/pedidos"
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-pedido/pedidos"
           }
         }
         post = {
@@ -124,7 +124,7 @@ resource "aws_api_gateway_rest_api" "this" {
             connectionId         = aws_api_gateway_vpc_link.this.id
             payloadFormatVersion = "1.0"
             type                 = "HTTP_PROXY"
-            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/food-api/pedidos"
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-pedido/pedidos"
           }
         }
       }
@@ -162,7 +162,7 @@ resource "aws_api_gateway_rest_api" "this" {
             connectionId         = aws_api_gateway_vpc_link.this.id
             payloadFormatVersion = "1.0"
             type                 = "HTTP_PROXY"
-            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/food-api/produtos"
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-pedido/produtos"
           }
         }
       }
@@ -179,7 +179,7 @@ resource "aws_api_gateway_rest_api" "this" {
             connectionId         = aws_api_gateway_vpc_link.this.id
             payloadFormatVersion = "1.0"
             type                 = "HTTP_PROXY"
-            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/food-api/produtos/{categoria}",
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-pedido/produtos/{categoria}",
             requestParameters = {
               "integration.request.path.categoria" : "method.request.path.param"
             }
@@ -197,7 +197,7 @@ resource "aws_api_gateway_rest_api" "this" {
             connectionId         = aws_api_gateway_vpc_link.this.id
             payloadFormatVersion = "1.0"
             type                 = "HTTP_PROXY"
-            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/food-api/produtos/{id}"
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-pedido/produtos/{id}"
             requestParameters = {
               "integration.request.path.id" : "method.request.path.param"
             }
@@ -215,7 +215,7 @@ resource "aws_api_gateway_rest_api" "this" {
             connectionId         = aws_api_gateway_vpc_link.this.id
             payloadFormatVersion = "1.0"
             type                 = "HTTP_PROXY"
-            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/food-api/produtos/{id}"
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-pedido/produtos/{id}"
             requestParameters = {
               "integration.request.path.id" : "method.request.path.param"
             }
