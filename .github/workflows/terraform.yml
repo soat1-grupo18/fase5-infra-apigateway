@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+      id-token: write
+      contents: read
+
 jobs:
   terraform:
     uses: soat1-grupo18/fase4-reusable-github-workflows/.github/workflows/aws-terraform.yml@main
@@ -12,4 +16,3 @@ jobs:
       aws-region: us-east-1
       terraform-directory-path: src
       terraform-version: 1.7.0
-    secrets: inherit
