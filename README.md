@@ -2,14 +2,15 @@
 
 Infra API Gateway com Terraform.
 
-- [Tech Challenge](#tech-challenge)
+- [fase3-infra-apigateway](#fase3-infra-apigateway)
+  - [Tech Challenge](#tech-challenge)
   - [Alunos](#alunos)
 
 ## Tech Challenge
 
 Projeto realizado durante o terceiro módulo da Pós Tech Software Architecture da FIAP.
 
-### Alunos
+## Alunos
 
 |                            Nome |     RM     |
 | ------------------------------: | :--------: |
