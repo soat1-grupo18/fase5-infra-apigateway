@@ -76,6 +76,43 @@ resource "aws_api_gateway_rest_api" "this" {
           }
         }
       }
+      "/pagamentos/confirmar" = {
+        post = {
+          security = [
+            {
+              fiap-authorizer = []
+            }
+          ]
+          x-amazon-apigateway-integration = {
+            httpMethod           = "POST"
+            connectionType       = "VPC_LINK"
+            connectionId         = aws_api_gateway_vpc_link.this.id
+            payloadFormatVersion = "1.0"
+            type                 = "HTTP_PROXY"
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-pagamento/pagamentos/confirmar"
+          }
+        }
+      }
+      "/pagamentos/status/{param}" = {
+        get = {
+          security = [
+            {
+              fiap-authorizer = []
+            }
+          ]
+          x-amazon-apigateway-integration = {
+            httpMethod           = "GET"
+            connectionType       = "VPC_LINK"
+            connectionId         = aws_api_gateway_vpc_link.this.id
+            payloadFormatVersion = "1.0"
+            type                 = "HTTP_PROXY"
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-pagamento/pagamentos/status/{status}"
+            requestParameters = {
+              "integration.request.path.status" : "method.request.path.param"
+            }
+          }
+        }
+      }
       "/pagamentos/{param}" = {
         get = {
           security = [
@@ -109,7 +146,7 @@ resource "aws_api_gateway_rest_api" "this" {
             connectionId         = aws_api_gateway_vpc_link.this.id
             payloadFormatVersion = "1.0"
             type                 = "HTTP_PROXY"
-            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-pedido/pedidos"
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-producao/pedidos"
           }
         }
         post = {
@@ -128,6 +165,23 @@ resource "aws_api_gateway_rest_api" "this" {
           }
         }
       }
+      "/pedidos/producao" = {
+        post = {
+          security = [
+            {
+              fiap-authorizer = []
+            }
+          ]
+          x-amazon-apigateway-integration = {
+            httpMethod           = "POST"
+            connectionType       = "VPC_LINK"
+            connectionId         = aws_api_gateway_vpc_link.this.id
+            payloadFormatVersion = "1.0"
+            type                 = "HTTP_PROXY"
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-producao/pedidos"
+          }
+        }
+      }
       "/pedidos/{param1}/{param2}" = {
         put = {
           security = [
@@ -141,7 +195,7 @@ resource "aws_api_gateway_rest_api" "this" {
             connectionId         = aws_api_gateway_vpc_link.this.id
             payloadFormatVersion = "1.0"
             type                 = "HTTP_PROXY"
-            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/food-api/pedidos/{pedidoId}/{statusDoPedido}"
+            uri                  = "http://${data.aws_lb.eks_ingress.dns_name}/ms-producao/pedidos/{pedidoId}/{statusDoPedido}"
             requestParameters = {
               "integration.request.path.pedidoId" : "method.request.path.param1"
               "integration.request.path.statusDoPedido" : "method.request.path.param2"
