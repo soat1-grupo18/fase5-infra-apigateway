@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket         = "289389227463-terraform-backend"
-    key            = "github/soat1-grupo18/fase3-infra-apigateway"
+    key            = "github/soat1-grupo18/fase5-infra-apigateway"
     dynamodb_table = "289389227463-terraform-backend"
     region         = "sa-east-1"
   }
